@@ -25,7 +25,8 @@ function App() {
               .then(response => {
                 setToDoItems([...toDoItems,response.data]);
                 setNewItem("");
-              });
+              })
+              .catch(error => console.log(error));
     }
   }
 
@@ -43,6 +44,19 @@ function App() {
             setToDoItems([...updatedItems]);
          });
   }
+
+  //Delete Item
+  function onDelete(id) {
+    if(window.confirm("Do you really want to delete this item"))
+    {
+      axios.delete("http://localhost:8080/todoitems/" + id)
+          .then(response => {
+              let updatedItems = toDoItems.filter(item => item.id !== id);
+              setToDoItems([...updatedItems]);
+          });
+        }
+  }
+
 
   return (
         <div className='container'>
@@ -62,7 +76,12 @@ function App() {
                   </div>
                   { toDoItems.map(item =>
                       <div className='list-group-item'>
-                        <ToDoItemFunc IsCompleted={item.IsCompleted} Title={item.Title} id={item.id} onCompleted={markAsCompleted} />
+                        <ToDoItemFunc IsCompleted={item.IsCompleted} 
+                              Title={item.Title} 
+                              id={item.id} 
+                              onCompleted={markAsCompleted} 
+                              onDelete={onDelete}
+                              />
                       </div>
                     )}
               </div>

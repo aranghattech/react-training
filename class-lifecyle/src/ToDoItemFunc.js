@@ -19,7 +19,7 @@ export default function ToDoItemFunc(props) {
 
     
     //4. Called Only On Unmount
-    useEffect(() => () =>  alert("Its getting unmounted"),[]);
+    //useEffect(() => () =>  alert("Its getting unmounted"),[]);
        
     
     
@@ -27,7 +27,8 @@ export default function ToDoItemFunc(props) {
         <div>
             <h3>{props.Title}</h3>
             <p>{props.IsCompleted ? "Completed" : "Not Completed"}</p>
-            <button type="button" onClick={() => props.onCompleted(props.id)}>Complete</button>
+            { !props.IsCompleted &&  <button type="button" onClick={() => props.onCompleted(props.id)}>Complete</button> }
+            { <button type="button" onClick={() => props.onDelete(props.id)}>Delete</button> }
         </div>
     );
 }
