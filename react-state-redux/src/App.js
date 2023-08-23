@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import ProductList from './ProductList';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             </li>
           </ul>
        </nav>
+       <ProductList />
     </div>
   );
 }

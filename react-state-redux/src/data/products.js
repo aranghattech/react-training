@@ -16,4 +16,5 @@ export const productsState = createSlice({
 });
 
 // Export the actions
+export const {} = productsState.actions;
 export default productsState.reducer;
