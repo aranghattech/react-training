@@ -13,9 +13,11 @@ export const routes = createBrowserRouter([
         element : <App />,
         loader : () => { 
                            
-            if(!localStorage.getItem("token")) 
-                         {return redirect("/login"); } 
-                       else return null},
+            // if(!localStorage.getItem("token")) 
+            //              {return redirect("/login"); } 
+            //            else return null},
+            return null;
+        },
         children : [
             {path : "", element : <Dashboard />},
             {path : "/products", element : <Products />},
