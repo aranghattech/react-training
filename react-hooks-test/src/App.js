@@ -6,6 +6,7 @@ import useLoginStatus from './useLoginStatus';
 import Register from './Register';
 import DemoChild from './DemoChild';
 import handleOnRender from './profileDataCollector';
+import TestComp from './TestComp';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+      {/* <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
      <label>
         Email
       </label>
@@ -48,7 +49,8 @@ function App() {
 <Profiler id="Demo Client" onRender={handleOnRender}>
   <DemoChild title={text} />
 </Profiler>
-      {/* <Register /> */}
+      <Register /> */}
+      <TestComp />
     </div>
   );
 }

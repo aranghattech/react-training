@@ -1,10 +1,11 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
+import { lazy } from "react";
 import App from "./App";
-import Dashboard from "./Dashboard";
-import Products from "./Products";
-import ProductDetails from "./ProductDetails";
-import Error from "./Error";
-import Login from "./Login";
+const Dashboard = lazy(() => import("./Dashboard"));
+const Products = lazy(() => import("./Products"));
+const ProductDetails = lazy(() => import("./ProductDetails"));
+const Error = lazy(() => import("./Error"));
+const Login = lazy(() => import("./Login"));
 
 
 export const routes = createBrowserRouter([
